@@ -1,0 +1,33 @@
+-- Link URL dataset : https://www.kaggle.com/datasets/lovishbansal123/sales-of-a-supermarket
+
+begin;
+
+-- Membuat database
+CREATE DATABASE airflow;
+
+-- Membuat tabel_m3
+CREATE TABLE IF NOT EXISTS table_m3(
+   "Invoice ID" varchar PRIMARY KEY,
+	Branch varchar,
+	City varchar,
+	"Customer type" varchar,
+	Gender varchar,
+	"Product line" varchar,
+	"Unit price" decimal,
+	Quantity integer,
+	"Tax 5%" decimal,
+	Total decimal,
+	Date varchar,
+	Time varchar,
+	Payment varchar,
+	cogs decimal,
+	"gross margin percentage" decimal,
+	"gross income" decimal,
+	Rating decimal
+);
+
+-- Memasukkan data sales
+COPY table_m3
+FROM 'E:\Vania\Hactiv8\Milestone3\sales_data.csv'
+DELIMITER ','
+CSV HEADER;
